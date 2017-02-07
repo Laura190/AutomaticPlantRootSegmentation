@@ -11,7 +11,7 @@ orig_width=getWidth();
 name=File.name;
 rename("orig");
 run("Duplicate...", "duplicate");
-run("Scale...", "x=0.5 y=0.5 z=0.5 width=465 height=471 depth=429 interpolation=None process create");
+run("Scale...", "x=0.5 y=0.5 z=0.5 interpolation=None process create");
 rename("process");
 
 //run("Erode (3D)", "iso=255");
