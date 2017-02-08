@@ -122,7 +122,17 @@ class end_point:
 			dirs.append(find_direction(self.end,pen))
 		self.directions = dirs
 		
-	def grow(self): #will return list of pixels to fill to grow this end point --- finish off
+	def grow(self,n): #will return list of pixels to fill to grow  n points from this end point in all directions --- finish off
+		pixels=[]
+		for direction in self.directions:
+			end_ = self.end
+			for k in range(n):
+				p=direction(*end_)
+				pixels.append(p)
+				end_=p
+	
+		return pixels
+				
 
 
 
@@ -135,8 +145,8 @@ if __name__=="__main__":
 	X_max,Y_max,Z_max = np.shape(skeleton)
 	end_point_list =get_list_of_end_points(end_points)
 
-	test=end_point(end_point_list[10],skeleton)
-	test.get_directions()
+	#test=end_point(end_point_list[10],skeleton)
+	#test.get_directions()
 	
 				
 	
