@@ -158,6 +158,15 @@ if __name__=="__main__":
 		new_pixels.append(current_pixels)
 	
 	new_pixels_flat=flatten(new_pixels)
+	
+	for tup in new_pixels_flat:
+		try:
+			skeleton[tup[0],tup[1],tup[2]]=255
+		except IndexError:
+			pass
+	
+	DIL.save_as_im_sequence(skeleton,dir='./grown_skeleton')
+	
 	#test=end_point(end_point_list[10],skeleton)
 	#test.get_directions()
 	
