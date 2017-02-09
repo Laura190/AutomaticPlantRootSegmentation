@@ -1,5 +1,5 @@
 //CLEANS ORGANIC MATTER
-CUTOFF=10;
+CUTOFF=34;
 //SAVE_DIR ="\\\\ROOSE_GROUP\\S_I_Ahmed\\Laura_data\\20131114_HUTCH_499_SIA_5050_02\\20131114_HUTCH_499_SIA_5050_02_131x143x170x8bt";
 SAVE_DIR =getDirectory("SELECT SAVE DIRECTOTY");
 
@@ -38,5 +38,6 @@ for (row=0; row<nResults; row++) {
 selectWindow("Seeds");
 run("Scale...", "x=- y=- z=- width="+orig_width+ " height="+orig_height+ " depth="+orig_slices+ " interpolation=None process create");
 rename("Seeds_scaled");
-run("Geodesic Reconstruction 3D", "marker=Seeds_scaled mask=orig type=[By Dilation] connectivity=26");
+//run("Geodesic Reconstruction 3D", "marker=Seeds_scaled mask=orig type=[By Dilation] connectivity=26"); ON CERTAIN OF IMAGEJ
+run("Morphological Reconstruction 3D", "marker=Seeds_scaled mask=orig type=[By Dilation] connectivity=26");
 //saveAs("Raw Data", SAVE_DIR+CUTOFF+"_CLEANED_"+name);
